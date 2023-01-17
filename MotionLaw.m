@@ -51,7 +51,7 @@ limit_velocity_final=acc^2/(2*MaxJerk); % velocity limit to start removing accel
 if (state==1 && acc>=MaxAcc) % max acceleration reached
     state=2;
     acc=min(acc,MaxAcc);
-elseif ((state==2 || state==1) && vel>=limit_velocity) % limit velocity reached
+elseif ((state==2 || state==1) && vel>=limit_velocity) % limit velocity reached  (cruise velocity will be reached soon)
     state=3;
 elseif (state==3 && acc<=0) % null acceleration reached
     state=4;
