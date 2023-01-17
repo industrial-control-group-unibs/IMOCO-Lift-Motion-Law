@@ -3,7 +3,7 @@
 Available profiles
 
 - Single speed profile
-![single speed profile](docs/Motion law - Single speed.png)
+![single speed profile](https://github.com/industrial-control-group-unibs/IMOCO-Lift-Motion-Law/blob/main/docs/Motion%20law%20-%20Single%20speed.png)
 
 
 
