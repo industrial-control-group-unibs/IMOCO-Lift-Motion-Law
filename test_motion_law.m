@@ -12,7 +12,7 @@ final_p=3;
 
 Ts=1e-3;
 
-t=(0:Ts:(10))';
+t=(0:Ts:(5))';
 
 p=0;
 
@@ -34,3 +34,6 @@ plot(t,setpoint_vel,t,setpoint_acc,t,stop,'--k',t,pos)
 
 
 p-final_p
+grid on
+xlabel('Time [s]')
+legend({'Velocity','Acceleration','Switch signal','Position'})
