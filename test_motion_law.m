@@ -1,14 +1,23 @@
 clear all;close all;clc;
 
+
+
+floor_height=3;
+num_floors=20;
+BuildingHeight=num_floors*floor_height;
+cabin_height=3;
+
+
+
 MaxVel=2;
 %Vmin=0.2;
 MaxAcc=2;
 MaxJerk=8;
-CruiseVel=1;
+CruiseVel=2;
 vlim=MaxAcc^2/MaxJerk;
 switch_distance=1;
 
-final_p=3;
+final_p=BuildingHeight;
 
 Ts=1e-3;
 
@@ -32,8 +41,6 @@ for idx=1:length(t)
 end
 plot(t,setpoint_vel,t,setpoint_acc,t,stop,'--k',t,pos)
 
-
-p-final_p
 grid on
 xlabel('Time [s]')
 legend({'Velocity','Acceleration','Switch signal','Position'})
