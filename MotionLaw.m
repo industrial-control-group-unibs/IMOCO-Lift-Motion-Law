@@ -1,4 +1,4 @@
-function [setpoint_vel,setpoint_acc]=MotionLaw(MaxJerk,MaxAcc,CruiseVel,Ts,switch_distance,switch_activated)
+function [setpoint_vel,setpoint_acc,idle]=MotionLaw(MaxJerk,MaxAcc,CruiseVel,Ts,switch_distance,switch_activated,new_request)
 
 persistent state vel acc pos
 if isempty(state)
@@ -48,7 +48,9 @@ limit_velocity=CruiseVel-acc^2/(2*MaxJerk); % velocity limit to start removing a
 limit_velocity_final=acc^2/(2*MaxJerk); % velocity limit to start removing accelaration to reach null velocity
 
 %% state machine transition 
-if (state==1 && acc>=MaxAcc) % max acceleration reached
+if (state==0 && new_request)
+    state=1;
+elseif (state==1 && acc>=MaxAcc) % max acceleration reached
     state=2;
     acc=min(acc,MaxAcc);
 elseif ((state==2 || state==1) && vel>=limit_velocity) % limit velocity reached  (cruise velocity will be reached soon)
@@ -72,6 +74,6 @@ elseif (state==8 && vel<=0) % steady state reached
     acc=0;
 end
 
-
+idle=state==0;
 setpoint_vel=vel;
 setpoint_acc=acc;
