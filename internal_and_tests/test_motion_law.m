@@ -9,7 +9,7 @@ cabin_height=2.8;
 proximity_distance=1;
 gearbox=1;
 max_load=800;
-
+Rp=0.5;
 
 MaxVel=2;
 MinVel=0.2;
