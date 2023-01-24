@@ -18,8 +18,15 @@ MaxJerk=1;
 CruiseVel=2;
 vlim=MaxAcc^2/MaxJerk;
 switch_distance=1;
-waiting_time=4;
+
 motion_profile=1;
+
+waiting_time_open_door=2;    % Time to open the doors
+waiting_time_close_door=2;   % Time to close the doors
+waiting_time_close_brake=1;  % Time to close the brake
+waiting_time_open_brake=1;   % Time to open the brake
+waiting_time_steady_state=1; % Time to reach zero velocity
+
 
 destination_floor=BuildingHeight;
 p=0;
