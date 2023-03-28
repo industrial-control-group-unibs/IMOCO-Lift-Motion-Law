@@ -34,4 +34,4 @@ eq=subs([vel;acc],t,tend);
 
 solve(eq==[FinalVel;0],[tend,InitialVel])
 end
-end
+
